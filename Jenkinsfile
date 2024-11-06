@@ -5,13 +5,13 @@ pipeline {
 	}
 
 	parameters {
-		choice(name: 'DEPLOY_ENVIRONMENT', choices: ['qa1', 'qa2', 'qa3'], description: 'Ambiente de despliegue')
+		choice(name: 'DEPLOY_ENVIRONMENT', choices: ['tomcat1', 'tomcat2'], description: 'Ambiente de despliegue')
 	}
 
 	stages {
 		stage('PackageDocker') {
 			steps {
-				sh 'mvn -B -q -P docker-build clean package'
+				bat 'mvn -B -q -P docker-build clean package'
 			}
 		}
 		stage('Deploy') {
