@@ -14,6 +14,13 @@ pipeline {
 				bat 'mvn -B -q -P docker-build clean package'
 			}
 		}
+		 stage('Deploy') {
+      		  steps {
+            		/*bat 'D:\devenv\CURSO-GIT-PRUEBAS\apache-tomcat-9.0.96_2\bin\shutdown.bat'*/
+            		bat 'copy target\\ROOT.war D:\devenv\CURSO-GIT-PRUEBAS\apache-tomcat-9.0.96_2'+ params.DEPLOY_ENVIRONMENT +'\\webapps'
+  		          /*bat 'D:\devenv\CURSO-GIT-PRUEBAS\apache-tomcat-9.0.96_2\bin\startup.bat'*/
+        		}
+    		} 
 /*		stage('Deploy') {
 			steps {
 				sh 'docker build -t ' + params.DEPLOY_ENVIRONMENT + ' .'
