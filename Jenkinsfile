@@ -15,6 +15,11 @@ pipeline {
 			}
 		}
 		 stage('Deploy') {
+			 when{
+				 not{
+					 equals expected:'ninguno', actual: params.DEPLOY_ENVIRONMENT
+				 }
+			 }
       		  steps {
             		/*bat 'D:\devenv\CURSO-GIT-PRUEBAS\apache-tomcat-9.0.96_2\bin\shutdown.bat'*/
             		bat 'copy target\\ROOT.war D:\devenv\CURSO-GIT-PRUEBAS\apache-tomcat-9.0.96_2'+ params.DEPLOY_ENVIRONMENT +'\\webapps'
