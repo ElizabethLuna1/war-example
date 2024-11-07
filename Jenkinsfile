@@ -14,11 +14,11 @@ pipeline {
 				bat 'mvn -B -q -P docker-build clean package'
 			}
 		}
-		stage('Deploy') {
+/*		stage('Deploy') {
 			steps {
 				sh 'docker build -t ' + params.DEPLOY_ENVIRONMENT + ' .'
 				sh 'cd ' + env.ENVS_DIR + ' && docker compose down ' + params.DEPLOY_ENVIRONMENT + ' && docker compose up -d ' + params.DEPLOY_ENVIRONMENT
 			}
-		}
+		}*/
 	}
 }
