@@ -5,7 +5,7 @@ pipeline {
 	}
 
 	parameters {
-		choice(name: 'DEPLOY_ENVIRONMENT', choices: ['tomcat1', 'tomcat2'], description: 'Ambiente de despliegue')
+		choice(name: 'DEPLOY_ENVIRONMENT', choices: ['ninguno','apache-tomcat-9.0.96_2', 'apache-tomcat-9.0.96_3'], description: 'Ambiente de despliegue')
 	}
 
 	stages {
@@ -22,7 +22,7 @@ pipeline {
 			 }
       		  steps {
             		/*bat 'D:\devenv\CURSO-GIT-PRUEBAS\apache-tomcat-9.0.96_2\bin\shutdown.bat'*/
-            		bat 'copy target\\ROOT.war D:\devenv\CURSO-GIT-PRUEBAS\apache-tomcat-9.0.96_2'+ params.DEPLOY_ENVIRONMENT +'\\webapps'
+            		bat 'copy target\\ROOT.war D:\\devenv\\CURSO-GIT-PRUEBAS\\'+ params.DEPLOY_ENVIRONMENT +'\\webapps'
   		          /*bat 'D:\devenv\CURSO-GIT-PRUEBAS\apache-tomcat-9.0.96_2\bin\startup.bat'*/
         		}
     		} 
