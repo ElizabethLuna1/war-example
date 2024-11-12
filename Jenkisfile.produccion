@@ -6,7 +6,7 @@ tools{
 }
 
 stages{
-stage('build'){
+stage('Build'){
   steps{
   // war-example-0.0.1.war
     bat 'mvn -B -q  clean install'
